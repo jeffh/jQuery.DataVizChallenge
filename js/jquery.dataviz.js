@@ -130,8 +130,11 @@ var DataViz = (function($, document, window, undefined){
 
 	// public API
 	return $.extend({}, constants, enumMaps, {
-		root: root,
-		query: query,
+		internals: {
+			root: root,
+			query: query,
+			genericParse: genericParse
+		},
 		getBudgetAccount: function(options){
 			return query('getBudgetAccount', options, genericParse);
 		},
@@ -143,7 +146,7 @@ var DataViz = (function($, document, window, undefined){
 		},
 		getReceiptAggregate: function(options){
 			return query('getReceiptAggregate', options, genericParse);
-		},
+		}
 	});
 
 })(jQuery, document, window);
